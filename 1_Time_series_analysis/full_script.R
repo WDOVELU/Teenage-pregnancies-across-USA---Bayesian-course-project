@@ -878,7 +878,7 @@ load("ts_post_all.dat")
 load("ts_high_diff.dat")
 load("ts_post_diff.dat")
 load("ts_high_pred.dat")
-load("ts_post_diff.dat")
+load("ts_post_pred.dat")
 
 # for (s in 1:length(state)) {
 #   ts_high_all[s,] <- Yh_s <- BIRTH_data$State.Rate[BIRTH_data$State == state[s] & BIRTH_data$Age.Group..Years. == "15-17 years"]
@@ -930,18 +930,18 @@ m_post <- min(mse_tot[,2]) #Ohio
 # Minimum mse:
 ggplot(data.frame(x = 1:26), y = ts_high_pred[mse_tot[,1] == m_high,]) +
   geom_line(data = data.frame(Y = ts_high_pred[mse_tot[,1] == m_high,], x = 1:26), 
-            aes(x = x, y = Y), lty = 2, col = "red") +
+            aes(x = x, y = Y, col = "Simulated data"), lty = 2) +
   geom_line(data = data.frame(Y = ts_high_diff[mse_tot[,1] == m_high,], x = 1:26), 
-            aes(x = x, y = Y), col = "blue") + theme_bw() +
-  ggtitle("Forecasting on State Virginia for Highschool")
+            aes(x = x, y = Y, col = "Real data")) + theme_bw() + scale_color_discrete(name="Legend") +
+  ggtitle("Forecasting on Virginia State for Highschool")
 
 
 ggplot(data.frame(x = 1:26), y = ts_post_diff[mse_tot[,2] == m_post,]) +
   geom_line(data = data.frame(Y = ts_post_diff[mse_tot[,2] == m_post,], x = 1:26), 
-            aes(x = x, y = Y), lty = 2, col = "red") +
+            aes(x = x, y = Y, col = "Simulated data"), lty = 2) +
   geom_line(data = data.frame(Y = ts_post_pred[mse_tot[,2] == m_post,], x = 1:26), 
-            aes(x = x, y = Y), col = "blue") + theme_bw() +
-  ggtitle("Forecasting on State Ohio for Post-Highschool")
+            aes(x = x, y = Y, col = "Real data")) + theme_bw() + scale_color_discrete(name="Legend") +
+  ggtitle("Forecasting on Ohio State for Post-Highschool")
 
 
 # BAD mse but state is close to missouri
@@ -950,7 +950,7 @@ ggplot(data.frame(x = 1:26), y = ts_post_diff[state == "Nebraska",]) +
             aes(x = x, y = Y), lty = 2, col = "red") +
   geom_line(data = data.frame(Y = ts_post_pred[state == "Nebraska",], x = 1:26), 
             aes(x = x, y = Y), col = "blue") + theme_bw() +
-  ggtitle("Forecasting on State Nebraska for Post-Highschool")
+  ggtitle("Forecasting on Nebraska State for Post-Highschool")
 
 
 # GOOD mse but state is far away from missouri
@@ -959,7 +959,7 @@ ggplot(data.frame(x = 1:26), y = ts_high_pred[state == "Oregon",]) +
             aes(x = x, y = Y), lty = 2, col = "red") +
   geom_line(data = data.frame(Y = ts_high_diff[state == "Oregon",], x = 1:26), 
             aes(x = x, y = Y), col = "blue") + theme_bw() +
-  ggtitle("Forecasting on State Oregon for Highschool")
+  ggtitle("Forecasting on Oregon State for Highschool")
 
 # the most weird mse
 ggplot(data.frame(x = 1:26), y = ts_high_pred[state == "District of Columbia",]) +
@@ -969,6 +969,17 @@ ggplot(data.frame(x = 1:26), y = ts_high_pred[state == "District of Columbia",])
             aes(x = x, y = Y), col = "blue") + theme_bw() +
   ggtitle("Forecasting on State District of Columbia for Highschool")
 
+#-------------------------------
+data <- t(ts_high_all)
+length(state)
+colnames(data) <- state
+write.csv(data, 'highschool_ts.csv')
+
+data_diff <- t(ts_high_diff)
+colnames(data_diff) <- state
+write.csv(data_diff, 'highschool_ts_diff.csv')
+
+
 graphics.off()
 rm(list=ls())
-
+#---------------------------------End first part----------------------------#
