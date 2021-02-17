@@ -53,7 +53,7 @@ lapply(needed_packages , require , character.only = TRUE)
 
 Our best model for the selected state Missouri is ARIMA(1,3,0) for two univariate time series with common  baseline and random effects on temporal paramenters.     
 
-<img src="https://github.com/WDOVELU/Teenage-pregnancies-across-USA---Bayesian-course-project/blob/master/3_Pictures/Markdown_pic/m1.jpg"  width="50%" height="50%">
+<img src="https://github.com/WDOVELU/Teenage-pregnancies-across-USA---Bayesian-course-project/blob/master/3_Pictures/Markdown_pic/m1.jpg"  width="43%" height="43%">
 
 
     
