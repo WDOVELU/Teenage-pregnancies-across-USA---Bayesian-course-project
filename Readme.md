@@ -5,7 +5,7 @@ Our dataset is made out of observations across 50 States of America, over 29 yea
 + girls aged 15-17, also called high-school group 
 + girls aged 18-19, also called post high-school group.   
 This counts for a total of 50x29x2 = 2900 observations of Birth rates.   
-<img src="" width="50%" height="50%">
+<img src="https://github.com/WDOVELU/Teenage-pregnancies-across-USA---Bayesian-course-project/blob/master/3_Pictures/Markdown_pic/dataset.PNG" width="50%" height="50%">
 
 
 The project is based on two steps, first time series analysis from bayesian view and then Spatio-Temporal analysis based on CARBayesST package. 
