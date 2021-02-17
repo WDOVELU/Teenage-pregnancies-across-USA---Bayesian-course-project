@@ -65,7 +65,7 @@ And it has a very good performance either for posterior inference or for accuran
 ## Second part: Spatio-Temporal analysis
 In this part, we provide a ST.CARar model that uses temporal and spatial dependences among states based on CARBayesST package.   
 
-<img src="https://github.com/WDOVELU/Teenage-pregnancies-across-USA---Bayesian-course-project/blob/master/3_Pictures/Markdown_pic/m2.jpg" width="50%" height="50%">
+<img src="https://github.com/WDOVELU/Teenage-pregnancies-across-USA---Bayesian-course-project/blob/master/3_Pictures/Markdown_pic/m2.jpg" width="57%" height="57%">
 
 When we set a state that is unobservable and try to simulate the birth rate of this certain state with data and location information from other states, this model has a high accuracy.
 <img src="https://github.com/WDOVELU/Teenage-pregnancies-across-USA---Bayesian-course-project/blob/master/3_Pictures/Markdown_pic/car_sim.jpg" width="70%" height="70%">
