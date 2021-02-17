@@ -5,7 +5,7 @@ Our dataset is made out of observations across 50 States of America, over 29 yea
 + girls aged 15-17, also called high-school group 
 + girls aged 18-19, also called post high-school group.   
 This counts for a total of 50x29x2 = 2900 observations of Birth rates.   
-<img src="https://github.com/WDOVELU/Teenage-pregnancies-across-USA---Bayesian-course-project/blob/master/3_Pictures/Markdown_pic/dataset_1.jpg" width="80%" height="80%">
+<center><img src="https://github.com/WDOVELU/Teenage-pregnancies-across-USA---Bayesian-course-project/blob/master/3_Pictures/Markdown_pic/dataset_1.jpg" width="80%" height="80%"></center>
 
 
 The project is based on two steps, first time series analysis from bayesian view and then Spatio-Temporal analysis based on CARBayesST package. 
@@ -53,7 +53,7 @@ lapply(needed_packages , require , character.only = TRUE)
 
 Our best model for the selected state Missouri is ARIMA(1,3,0) for two univariate time series with common  baseline and random effects on temporal paramenters.     
 
-<img src="https://github.com/WDOVELU/Teenage-pregnancies-across-USA---Bayesian-course-project/blob/master/3_Pictures/Markdown_pic/m1.jpg"  width="43%" height="43%">
+<img src="https://github.com/WDOVELU/Teenage-pregnancies-across-USA---Bayesian-course-project/blob/master/3_Pictures/Markdown_pic/m1.jpg"  width="38%" height="38%">
 
 
     
@@ -65,9 +65,10 @@ And it has a very good performance either for posterior inference or for accuran
 ## Second part: Spatio-Temporal analysis
 In this part, we provide a ST.CARar model that uses temporal and spatial dependences among states based on CARBayesST package.   
 
-<img src="https://github.com/WDOVELU/Teenage-pregnancies-across-USA---Bayesian-course-project/blob/master/3_Pictures/Markdown_pic/m2.jpg" width="57%" height="57%">
+<img src="https://github.com/WDOVELU/Teenage-pregnancies-across-USA---Bayesian-course-project/blob/master/3_Pictures/Markdown_pic/m2.jpg" width="62%" height="62%">
 
 When we set a state that is unobservable and try to simulate the birth rate of this certain state with data and location information from other states, this model has a high accuracy.
+
 <img src="https://github.com/WDOVELU/Teenage-pregnancies-across-USA---Bayesian-course-project/blob/master/3_Pictures/Markdown_pic/car_sim.jpg" width="70%" height="70%">
 
 ## Conclusion
@@ -80,27 +81,6 @@ As a second model, the ST.CARar model from CARBayesST was used, in order to work
 maybe even detect fraudulent data. 
 
 This being said, no model is better than the other. The two models are complementary and give answers to different questions.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
