@@ -52,13 +52,11 @@ lapply(needed_packages , require , character.only = TRUE)
 ## First part: Time series analysis
 
 Our best model for the selected state Missouri is ARIMA(1,3,0) for two univariate time series with common  baseline and random effects on temporal paramenters.
-$$
-Y_{t,j} | \mu_0, \phi_j, \sigma^2_{Y_j} \overset{\text{ind}} \sim N(\mu_0 + \phi_j Y_{t-1,j},\sigma^2_{Y_j})\\
-        \sigma^2_{Y_j} \overset{\text{iid}} \sim InvGamma(a_Y,b_Y)\\
-        \mu_0 \sim N(0,\sigma^2_{\mu_0})\\
-        \phi_j \overset{\text{ind}} \sim N(0,\sigma^2_{\phi_j})\\
-    j = 1,2$ age groups, $t=1,..,23\\
-$$
+
+<img src="https://github.com/WDOVELU/Teenage-pregnancies-across-USA---Bayesian-course-project/blob/master/3_Pictures/Markdown_pic/m1.jpg" >
+
+
+
 And it has a very good performance either for posterior inference or for accurancy of forecasting the future birth rate.
 <img src="https://github.com/WDOVELU/Teenage-pregnancies-across-USA---Bayesian-course-project/blob/master/3_Pictures/Markdown_pic/AR1.jpg" width="60%" height="60%">
 
@@ -66,21 +64,8 @@ And it has a very good performance either for posterior inference or for accuran
 
 ## Second part: Spatio-Temporal analysis
 In this part, we provide a ST.CARar model that uses temporal and spatial dependences among states based on CARBayesST package..
-$$
-Y_{kt} | \mu_{kt},\nu^2 \overset{\text{ind}}\sim \mathcal{N}(\mu_{kt},\nu^2)\\ 
-    \mu_{kt} = \beta_0 + \phi_{kt}\\
-    \beta_0 \sim \mathcal{N}(\mu_\beta, \sigma_\beta)\\
-    \nu^2 \sim Inv-Gamma(a,b)\\
-    
-    \boldsymbol{\phi}_t | \boldsymbol{\phi}_{t-1}, \rho_S, \rho_T, \tau^2 \sim \mathcal{N}_{49}(\rho_T\boldsymbol{\phi}_{t-1},\tau^2\textbf{Q}(\textbf{W},\rho_S)^{-1}) \\ 
-    
-    
-    \boldsymbol{\phi}_1 \sim \mathcal{N}_{49}(\textbf{0},\tau^2\textbf{Q}(\textbf{W},\rho_S)^{-1})\\
-    
-    \tau^2 \sim Inv-Gamma(a,b)\\
-    \rho_S,\rho_T \overset{\text{iid}} \sim Uniform(0,1)\\
-    \textbf{Q}(\textbf{W}, \rho_S) = \rho_S[diag(\textbf{W1}) - \textbf{W}] + (1 - \rho_S)\textbf{I}\\
-$$
+<img src="https://github.com/WDOVELU/Teenage-pregnancies-across-USA---Bayesian-course-project/blob/master/3_Pictures/Markdown_pic/m2.jpg" >
+
 When we set a state that is unobservable and try to simulate the birth rate of this certain state with data and location information from other states, this model has a high accuracy.
 <img src="https://github.com/WDOVELU/Teenage-pregnancies-across-USA---Bayesian-course-project/blob/master/3_Pictures/Markdown_pic/car_sim.jpg" width="70%" height="70%">
 
